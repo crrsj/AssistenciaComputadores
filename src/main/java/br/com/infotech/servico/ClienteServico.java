@@ -41,4 +41,9 @@ public class ClienteServico {
 	public void excluir(Long id) {
 		clienteRepositorio.deleteById(id);
 	}
+	
+	public Cliente buscarPorNumero(int ordem) {
+		Optional<Cliente>buscarOrdem = clienteRepositorio.findByOrdem(ordem);
+		return buscarOrdem.get();
+	}
 }
