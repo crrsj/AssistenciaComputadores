@@ -33,8 +33,9 @@ public class ClienteServico {
 		return buscar.get();
 	}
 	
-	public Cliente atualizarCliente(ClienteDto cliente) {		
+	public Cliente atualizarCliente(ClienteDto cliente,Long id) {		
 		var atualizar = new Cliente(cliente);
+		atualizar.setId(id);
 		return clienteRepositorio.save(atualizar);
 		
 	}
