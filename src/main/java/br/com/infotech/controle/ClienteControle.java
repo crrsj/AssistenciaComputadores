@@ -1,5 +1,7 @@
 package br.com.infotech.controle;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,4 +38,14 @@ public class ClienteControle {
 		return ResponseEntity.ok().body(new ClienteDto(busca));
 	}
 	
+	@GetMapping
+	public ResponseEntity<List<ClienteDto>>buscarTodos(){
+		var buscarTodos = clienteServico.buscarTodos();
+		return ResponseEntity.ok(buscarTodos);
+	}
+	
+	public ResponseEntity<ClienteDto>buscarPorId(@PathVariable Long id){
+		var buscaId = clienteServico.buscarPorId(id);
+		return ResponseEntity.ok().body(new ClienteDto(buscaId));
+	}
 }
