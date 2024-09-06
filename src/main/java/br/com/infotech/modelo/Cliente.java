@@ -13,6 +13,8 @@ import br.com.infotech.enums.Pagamento;
 import br.com.infotech.enums.Status;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -37,14 +39,18 @@ public class Cliente {
 	private int ordem = new Random().nextInt(1000 + 1);	
 	private String nome;
 	private String fone;
+	@Enumerated(EnumType.STRING)
 	private Marca marca;
 	private String modelo;
+	@Enumerated(EnumType.STRING)
 	private Defeito defeito;
 	@Column(length = 500)
-	private String servico;
+	private String servico;	
 	private LocalDate dataEntrega;
 	private Double valor;
+	@Enumerated(EnumType.STRING)
 	private Pagamento pagamento;
+	@Enumerated(EnumType.STRING)
 	private Status status;
 	private int garantiaMes;
 	
