@@ -15,7 +15,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.com.infotech.dto.ClienteDto;
 
 import br.com.infotech.servico.ClienteServico;
-import jakarta.websocket.ClientEndpoint;
+
 import lombok.RequiredArgsConstructor;
 
 @RestController
