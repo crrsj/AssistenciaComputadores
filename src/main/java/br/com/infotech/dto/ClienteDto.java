@@ -25,11 +25,11 @@ public record ClienteDto(
                 String nome,
                 @NotBlank(message =  "Não encontrado")
                 String fone,
-                @NotBlank(message =  "Não encontrado")
+                
                 Marca marca,
                 @NotBlank
                 String modelo, 
-                @NotBlank
+                
 		        Defeito defeito,
 		        @NotBlank(message =  "Não encontrado")
 		        String servico, 
