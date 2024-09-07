@@ -1,4 +1,4 @@
-package br.com.infotech.infra;
+package br.com.infotech.dto;
 
 import org.springframework.http.HttpStatus;
 

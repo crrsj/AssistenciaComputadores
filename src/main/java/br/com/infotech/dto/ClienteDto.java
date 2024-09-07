@@ -10,6 +10,8 @@ import br.com.infotech.enums.Marca;
 import br.com.infotech.enums.Pagamento;
 import br.com.infotech.enums.Status;
 import br.com.infotech.modelo.Cliente;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record ClienteDto(
               
@@ -19,16 +21,17 @@ public record ClienteDto(
                 
                 int ordem,
                 
+                @NotBlank(message =  "Não encontrado")
                 String nome,
-                
+                @NotBlank(message =  "Não encontrado")
                 String fone,
-                
+                @NotBlank(message =  "Não encontrado")
                 Marca marca,
-                
+                @NotBlank
                 String modelo, 
-                
+                @NotBlank
 		        Defeito defeito,
-		         
+		        @NotBlank(message =  "Não encontrado")
 		        String servico, 
 		        @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
 		        LocalDate dataEntrega,

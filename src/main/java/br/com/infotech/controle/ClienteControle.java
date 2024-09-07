@@ -15,7 +15,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.com.infotech.dto.ClienteDto;
 
 import br.com.infotech.servico.ClienteServico;
-
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -26,7 +26,7 @@ public class ClienteControle {
 	private final ClienteServico clienteServico;
 	
 	@PostMapping
-	public ResponseEntity<ClienteDto>criar(@RequestBody ClienteDto cliente){
+	public ResponseEntity<ClienteDto>criar(@RequestBody @Valid ClienteDto cliente){
 		var criarCliente = clienteServico.criar(cliente);
 		var uri = ServletUriComponentsBuilder.fromCurrentRequest().
 				path("{id}").buildAndExpand(criarCliente.getId()).toUri();	
@@ -52,7 +52,7 @@ public class ClienteControle {
 	}
 	
 	@PutMapping
-	public ResponseEntity<ClienteDto>atualizarCliente(@RequestBody ClienteDto cliente,@PathVariable Long id){
+	public ResponseEntity<ClienteDto>atualizarCliente(@RequestBody @Valid ClienteDto cliente,@PathVariable Long id){
 		var  atualizar = clienteServico.atualizarCliente(cliente, id);
 		return ResponseEntity.ok().body(new ClienteDto(atualizar));
 	}
